@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Internet Protocol Assignment 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div id='container' class="col">
+          <h1>Welcome! This is an image manager of {{ username }}</h1>
+          <br>
+          <br>
+          <form method="POST" action="/upload" enctype = "multipart/form-data">
+            <div class="col-6">
+              <input type="file" name="file" aria-describedby="file11">
+              <input type="submit" class="btn btn-primary">
+            </div>
+          </form>
+
+          <br>
+          <br>
+
+          <form method="POST" action="/addTag">
+            <div class="col-6">
+              ImageId: <select class="custom-select" name="imageId">
+                {% for image in images %}
+                  <option value="{{ image.imageId }}">{{ image.imageId }}</option>
+                {% endfor %}
+              </select><br/>
+              Tag: <input type="text" name="tag" class="form-control"><br>
+              <input type="submit" class="btn btn-primary">
+            </div>
+          </form>
+
+          <input type="button" id='link' value="Image"></button>
+
+        </div>
+      </div>
+    </div>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script>
+      var a = $("<a>")
+
+      console.log(a[0]);
+      $('#link').click(function() {
+        console.log($('#container'));
+        $('#container').append('<img id="theImg" src="/data/images/test4.jpg" />')
+        $('#container').append('<img id="theImg" src="/data/images/fae2152c-4788-49c7-baad-276e66a3acaa7318943932366039504.jpg" />')
+      });
+
+      a.remove();
+    </script>
+  </body>
+</html>

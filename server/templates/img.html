@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Internet Protocol Assignment 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h1>Welcome! This is an image manager of {{ username }}</h1>
+          <br>
+          <br>
+
+          {% for image in images %}
+            <div>
+              <img src="/data/images/{{ image.filename }}" height="42" width="42" />
+              <div>Id: {{ image.imageId }}</div>
+              {% if image.tags|length > 0  %}
+                <div>Tags: 
+                    {% for tag in image.tags %}
+                      {{ tag }};
+                    {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <br>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Internet Protocol Assignment 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <h1>Welcome! This is used for testing multiplexing</h1>
+          <br>
+          <br>
+          <button class="btn btn-primary" id="multiplex">Multi-Requests</button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+          const requestButton = document.getElementById("multiplex");
+          requestButton.onclick = async function() {
+            promises = [];
+            for (let i = 0; i < 100; i++) {
+                promises.push(fetch(`/multiplex/${i}`));
+            }
+            await Promise.all(promises);
+          }
+        }, false);
+      </script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "images": [
+        {
+            "filename": "test4.jpg",
+            "imageId": "1",
+            "tags": [
+                "tag1",
+                "tag2"
+            ]
+        }
+    ],
+    "name": "User A"
+}
