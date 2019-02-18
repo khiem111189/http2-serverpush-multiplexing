@@ -1,0 +1,3 @@
+curl https://localhost2
+curl -d 'imageId=1&tag=test' https://localhost2/addTag
+curl -v -F file=@test1.png https://localhost2/upload
